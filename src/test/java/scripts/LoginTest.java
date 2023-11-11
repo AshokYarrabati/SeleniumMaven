@@ -22,6 +22,11 @@ public class LoginTest extends UIBase {
         boardPage.validateDashBoardPageLoaded();
     }
 
+    @Test(testName="Apply Leave Scenario")
+    public void applyLeave(){
+
+    }
+
 
 
 }
