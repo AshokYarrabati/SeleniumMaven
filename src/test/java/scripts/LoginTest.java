@@ -4,14 +4,16 @@ import Utility.ConfigReader;
 import Utility.UIBase;
 import com.automation.orangeHRM.DashBoardPage;
 import com.automation.orangeHRM.LoginPage;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class LoginTest extends UIBase {
 
-    @Test(testName = "Login to the Orange HRM application",priority = 0,groups = "{smoke}")
-    public void loginToApplication(){
+    @Test(testName = "Login to the Orange HRM application",groups = "{smoke}")
+    @Parameters({"username"})
+    public void loginToApplication(String uName){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUserName(ConfigReader.getProperties().getProperty("userName"));
+        loginPage.enterUserName(uName);
         loginPage.enterPassword(ConfigReader.getProperties().getProperty("password"));
         loginPage.clickLoginButton();
     }
@@ -22,9 +24,9 @@ public class LoginTest extends UIBase {
         boardPage.validateDashBoardPageLoaded();
     }
 
-    @Test(testName="Apply Leave Scenario")
+    @Test(enabled = false,testName="Apply Leave Scenario",dependsOnMethods = "{validateDashBoardPage}")
     public void applyLeave(){
-
+        System.out.println("Applying leave");
     }
 
 

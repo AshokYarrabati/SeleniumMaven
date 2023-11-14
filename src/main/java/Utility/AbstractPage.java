@@ -20,8 +20,8 @@ public class AbstractPage {
         FileUtils.copyFile(src,destination);
     }
 
-    public void verifyElementIsDisplayed(By e){
-        if(driver.findElement(e).isDisplayed()){
+    public void verifyElementIsDisplayed(WebElement e){
+        if(e.isDisplayed()){
             System.out.println("WebElement is displayed");
         }else{
             System.out.println("WebElement is not displayed"+e.toString());

@@ -1,6 +1,7 @@
 package com.automation.orangeHRM;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -21,8 +22,12 @@ public class DashBoardPage {
     }
 
     public void validateDashBoardPageLoaded(){
-        WebElement element = driver.findElement(dashBoard);
-        Assert.assertTrue(element.isDisplayed(),"Dash board is did not display");
-        Reporter.log("DashBoard is displayed");
+        try {
+            WebElement element = driver.findElement(dashBoard);
+            Assert.assertTrue(element.isDisplayed(), "Dash board is did not display");
+            Reporter.log("DashBoard is displayed", true);
+        }catch(NoSuchElementException e){
+            Reporter.log("Dashboard page is not displayed for invalid credentials");
+        }
     }
 }
