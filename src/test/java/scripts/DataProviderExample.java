@@ -1,12 +1,7 @@
 package scripts;
-
-import Utility.ConfigReader;
 import Utility.UIBase;
 import com.automation.orangeHRM.DashBoardPage;
 import com.automation.orangeHRM.LoginPage;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 

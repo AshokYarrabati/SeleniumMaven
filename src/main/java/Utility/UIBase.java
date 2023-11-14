@@ -21,7 +21,7 @@ public class UIBase {
     public void launchDriver(){
         startChromeBrowser();
         driver.get(ConfigReader.getProperties().getProperty("URL"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(8));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterClass(alwaysRun=true)
