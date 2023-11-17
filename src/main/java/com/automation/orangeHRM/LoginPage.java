@@ -1,5 +1,6 @@
 package com.automation.orangeHRM;
 import Utility.AbstractPage;
+import Utility.ReporterLog;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,6 +40,7 @@ public class LoginPage extends AbstractPage {
         driverWait.until(ExpectedConditions.presenceOfElementLocated(nameField));
         userName.sendKeys(String.valueOf(uName));//page factory
         Reporter.log("UserName is entered as "+uName,true);
+        ReporterLog.logInfo("USername entered as"+uName);
         verifyElementIsDisplayed(userName);
     }
 
@@ -46,16 +48,14 @@ public class LoginPage extends AbstractPage {
        // driver.findElement(passwordField).sendKeys(password);
         password.sendKeys(String.valueOf(pass));
         Reporter.log("password is entered as "+pass,true);
-        try {
-            getScreenshot();
-        }catch (Exception e){
-
-        }
+        ReporterLog.logInfo("password entered as"+pass);
+        ReporterLog.attachScreenshot(getScreenshot());
     }
 
     public void clickLoginButton(){
         loginBtn.click();
         Reporter.log("clicked on login button "+loginBtn.toString(),true);
+        ReporterLog.logInfo("clicked on login button");
     }
 
 }

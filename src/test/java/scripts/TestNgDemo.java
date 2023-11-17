@@ -13,7 +13,7 @@ public class TestNgDemo {
     //@AfterTest--->in this annotation we are closing the webdriver object(quit)
     //@AfterSuite-->(report flushing after logging all the statements)
 
-    @Test
+    @Test(priority = -1)
     public void test1() {
         System.out.println("Test Case 1");
     }// Test Case 2

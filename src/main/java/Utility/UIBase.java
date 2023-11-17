@@ -8,12 +8,15 @@ import org.testng.annotations.BeforeClass;
 
 import java.time.Duration;
 
-public class UIBase {
+public class UIBase extends Hooks {
+
 
     public static WebDriver driver;
+    public static ThreadLocal<WebDriver> Tdriver = new ThreadLocal<>();
     public static void startChromeBrowser(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        Tdriver.set(driver);
         driver.manage().window().maximize();
     }
 
@@ -28,4 +31,5 @@ public class UIBase {
     public void quitDriver() {
         driver.quit();
     }
+
 }

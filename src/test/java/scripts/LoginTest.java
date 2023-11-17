@@ -18,7 +18,7 @@ public class LoginTest extends UIBase {
         loginPage.clickLoginButton();
     }
 
-    @Test(testName = "Validate Dashboard page is loaded",priority = 1,groups = "{Regression}")
+    @Test(testName = "Validate Dashboard page is loaded",dependsOnMethods = "loginToApplication")
     public void validateDashBoardPage(){
         DashBoardPage boardPage = new DashBoardPage(driver);
         boardPage.validateDashBoardPageLoaded();

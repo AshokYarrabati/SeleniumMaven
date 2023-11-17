@@ -1,9 +1,5 @@
 package Utility;
-
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-
-import java.io.File;
 
 public class AbstractPage {
 
@@ -13,11 +9,10 @@ public class AbstractPage {
         this.driver=driver;
     }
 
-    public void getScreenshot() throws Exception{
+    public String getScreenshot(){
         TakesScreenshot screenshot =(TakesScreenshot) driver;
-         File src = screenshot.getScreenshotAs(OutputType.FILE);
-         File destination = new File("C:\\Users\\hp\\IdeaProjects\\SeleniumMaven\\src\\test\\java\\screenshots\\screenshot.png");
-        FileUtils.copyFile(src,destination);
+         return screenshot.getScreenshotAs(OutputType.BASE64);
+
     }
 
     public void verifyElementIsDisplayed(WebElement e){
