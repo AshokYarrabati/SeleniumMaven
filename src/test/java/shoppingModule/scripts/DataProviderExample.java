@@ -1,4 +1,4 @@
-package scripts;
+package shoppingModule.scripts;
 import Utility.UIBase;
 import com.automation.orangeHRM.DashBoardPage;
 import com.automation.orangeHRM.LoginPage;

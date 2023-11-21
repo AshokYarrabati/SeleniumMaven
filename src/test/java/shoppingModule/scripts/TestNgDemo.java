@@ -1,4 +1,4 @@
-package scripts;
+package shoppingModule.scripts;
 
 import org.testng.annotations.*;
 
