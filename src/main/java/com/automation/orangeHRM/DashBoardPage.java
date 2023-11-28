@@ -33,6 +33,7 @@ public class DashBoardPage extends AbstractPage {
             ReporterLog.logPass("DashBoard is displayed");
         }catch(NoSuchElementException e){
             Reporter.log("Dashboard page is not displayed for invalid credentials");
+            ReporterLog.logFail("DashBoard page did not display");
         }
     }
 }

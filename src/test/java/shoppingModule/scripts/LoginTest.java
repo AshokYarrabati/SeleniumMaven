@@ -7,13 +7,17 @@ import com.automation.orangeHRM.LoginPage;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.Properties;
+
 public class LoginTest extends UIBase {
 
-    @Test(testName = "Login to the Orange HRM application",groups = "{smoke}")
-    @Parameters({"username"})
-    public void loginToApplication(String uName){
+    Properties properties;
+
+    @Test(testName = "Login to the Orange HRM application")
+    public void loginToApplication(){
         LoginPage loginPage = new LoginPage(driver);
-        loginPage.enterUserName(uName);
+        properties = ConfigReader.getProperties();
+        loginPage.enterUserName(properties.getProperty("userName"));
         loginPage.enterPassword(ConfigReader.getProperties().getProperty("password"));
         loginPage.clickLoginButton();
     }

@@ -18,8 +18,8 @@ public class LoginPage extends AbstractPage {
 
     WebDriver driver;
     By nameField = By.name("username");
-//    By passwordField = By.xpath("//input[@name='password']");
-//    By loginButton = By.cssSelector("button[type='submit']");
+    By passwordField = By.xpath("//input[@name='password']");
+    By loginButton = By.cssSelector("button[type='submit']");
 
     @FindBy(name = "username")
     WebElement userName;
@@ -35,16 +35,16 @@ public class LoginPage extends AbstractPage {
         this.driver=driver;
     }
 
-    public void enterUserName(Object uName){
-        WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(11));
-        driverWait.until(ExpectedConditions.presenceOfElementLocated(nameField));
-        userName.sendKeys(String.valueOf(uName));//page factory
+    public void enterUserName(String uName){
+        waitForElementToBeDisplayed(nameField);
+        //enterUserNameUsingJSE(userName,uName);
+        userName.sendKeys(uName);//page factory
         Reporter.log("UserName is entered as "+uName,true);
-        ReporterLog.logInfo("USername entered as"+uName);
+        ReporterLog.logInfo("Username entered as"+uName);
         verifyElementIsDisplayed(userName);
     }
 
-    public void enterPassword(Object pass){
+    public void enterPassword(String pass){
        // driver.findElement(passwordField).sendKeys(password);
         password.sendKeys(String.valueOf(pass));
         Reporter.log("password is entered as "+pass,true);
@@ -53,7 +53,9 @@ public class LoginPage extends AbstractPage {
     }
 
     public void clickLoginButton(){
-        loginBtn.click();
+        waitForElementToBeClickable(loginBtn);
+        //loginBtn.click();
+        clickUsingJSE(loginBtn);
         Reporter.log("clicked on login button "+loginBtn.toString(),true);
         ReporterLog.logInfo("clicked on login button");
     }
