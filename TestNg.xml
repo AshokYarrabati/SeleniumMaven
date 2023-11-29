@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="OrangeHRM" >
+<suite name="OrangeHRM" parallel="tests">
     <listeners>
         <listener class-name="listeners.MyListener"></listener>
     </listeners>
     <test name="LoginTest" >
         <parameter name="username" value="Admin"></parameter>
         <classes>
-            <class name="scripts.LoginTest"/>
+            <class name="shoppingModule.scripts.LoginTest"/>
         </classes>
     </test>
 
