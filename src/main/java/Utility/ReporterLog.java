@@ -9,6 +9,7 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.ViewName;
 import com.google.common.base.Throwables;
+import org.testng.Assert;
 import org.testng.ITestResult;
 
 public class ReporterLog {
@@ -59,6 +60,7 @@ public class ReporterLog {
     }
     public static void logFail(String message){
         extentTest.log(Status.FAIL,message);
+        Assert.fail(message);
     }
     public static void logWarn(String message){
         extentTest.log(Status.WARNING,message);

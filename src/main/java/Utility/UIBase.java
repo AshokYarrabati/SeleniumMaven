@@ -9,13 +9,10 @@ import org.testng.annotations.BeforeClass;
 import java.time.Duration;
 
 public class UIBase extends Hooks {
-
-
-    public static WebDriver driver;
     public static ThreadLocal<WebDriver> Tdriver = new ThreadLocal<>();
-    public static void startChromeBrowser(){
+    public void startChromeBrowser(){
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         Tdriver.set(driver);
         driver.manage().window().maximize();
     }
@@ -23,13 +20,13 @@ public class UIBase extends Hooks {
     @BeforeClass(alwaysRun=true)
     public void launchDriver(){
         startChromeBrowser();
-        driver.get(ConfigReader.getProperties().getProperty("URL"));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Tdriver.get().get(ConfigReader.getProperties().getProperty("URL"));
+        Tdriver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @AfterClass(alwaysRun=true)
     public void quitDriver() {
-        driver.quit();
+        Tdriver.get().quit();
     }
 
 }

@@ -1,5 +1,6 @@
 package listeners;
 
+import Utility.ReporterLog;
 import Utility.UIBase;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -24,6 +25,8 @@ public class MyListener implements ITestListener {
         WebDriver driver= UIBase.Tdriver.get();
         TakesScreenshot screenshot =(TakesScreenshot) driver;
         String base64 = screenshot.getScreenshotAs(OutputType.BASE64);
+        ReporterLog.logFail("Failed screenshot");
+        ReporterLog.attachScreenshot(base64);
     }
 
     @Override

@@ -15,7 +15,8 @@ public class LoginTest extends UIBase {
 
     @Test(testName = "Login to the Orange HRM application")
     public void loginToApplication(){
-        LoginPage loginPage = new LoginPage(driver);
+        System.out.println("Thread===>"+Thread.currentThread().getId());
+        LoginPage loginPage = new LoginPage(Tdriver.get());
         properties = ConfigReader.getProperties();
         loginPage.enterUserName(properties.getProperty("userName"));
         loginPage.enterPassword(ConfigReader.getProperties().getProperty("password"));
@@ -24,7 +25,8 @@ public class LoginTest extends UIBase {
 
     @Test(testName = "Validate Dashboard page is loaded",dependsOnMethods = "loginToApplication")
     public void validateDashBoardPage(){
-        DashBoardPage boardPage = new DashBoardPage(driver);
+        System.out.println("Thread===>"+Thread.currentThread().getId());
+        DashBoardPage boardPage = new DashBoardPage(Tdriver.get());
         boardPage.validateDashBoardPageLoaded();
     }
 

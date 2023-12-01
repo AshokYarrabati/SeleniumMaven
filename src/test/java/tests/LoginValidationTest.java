@@ -16,8 +16,8 @@ public class LoginValidationTest extends UIBase {
 
     @Test(testName = "Validate login to Orange HRM is successful")
     public void loginToOrangeHRMApplication(){
-        loginPage = new OrangeHRMLoginPage(driver);
-        dashBoardPage = new OrangeHRMDashBoardPage(driver);
+        loginPage = new OrangeHRMLoginPage(Tdriver.get());
+        dashBoardPage = new OrangeHRMDashBoardPage(Tdriver.get());
         loginPage.doLogin(properties.getProperty("userName"),properties.getProperty("password"));
     }
 

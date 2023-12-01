@@ -13,11 +13,11 @@ public class DataProviderExample extends UIBase  {
 
     @Test(dataProvider ="testData" )
     public void doLogin(String uname, String password){
-        LoginPage loginPage = new LoginPage(driver);
+        LoginPage loginPage = new LoginPage(Tdriver.get());
         loginPage.enterUserName(uname);
         loginPage.enterPassword(password);
         loginPage.clickLoginButton();
-        DashBoardPage dashBoardPage = new DashBoardPage(driver);
+        DashBoardPage dashBoardPage = new DashBoardPage(Tdriver.get());
         dashBoardPage.validateDashBoardPageLoaded();
     }
 

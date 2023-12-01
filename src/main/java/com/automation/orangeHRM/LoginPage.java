@@ -46,7 +46,7 @@ public class LoginPage extends AbstractPage {
 
     public void enterPassword(String pass){
        // driver.findElement(passwordField).sendKeys(password);
-        password.sendKeys(String.valueOf(pass));
+        password.sendKeys(pass);
         Reporter.log("password is entered as "+pass,true);
         ReporterLog.logInfo("password entered as"+pass);
         ReporterLog.attachScreenshot(getScreenshot());
